@@ -1,5 +1,7 @@
 import { createApp } from "vue";
 import "@picocss/pico/css/pico.css";
+import "./css/app.css";
+import "./js/app.js";
 import App from "./App.vue";
 //import './registerServiceWorker'
 
