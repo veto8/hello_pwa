@@ -10,6 +10,7 @@ app.mount("#app");
 
 let install_prompt = null;
 let $install_button = document.querySelector(".install_app");
+let $install_pwa = document.querySelector("#install_pwa");
 
 const worker = new Worker(new URL("./db.js", import.meta.url), {
   type: "module",
@@ -60,8 +61,8 @@ window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
 
   install_prompt = event;
-  $install_button.classList.remove("is-hidden");
-  $install_button.addEventListener("click", () => {
+  //$install_button.classList.remove("is-hidden");
+  $install_pwa.addEventListener("click", () => {
     console.log("...install app btn click");
     install_prompt.prompt();
 
