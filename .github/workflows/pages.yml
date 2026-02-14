@@ -19,14 +19,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Compile
-        run: |
-         apt-get update -y
-         apt-get upgrade -y
-         apt-get install npm -y
+
       - name: Checkout code
         uses: actions/checkout@v2    
-
+      - name: Compile
+        run: |
+         ls
         #  npm install
         #  npm run dist
       #- name: Setup Pages
