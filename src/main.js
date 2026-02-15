@@ -1,9 +1,13 @@
 import { createApp } from "vue";
 import App from "./vue/App.vue";
 import "@picocss/pico/css/pico.css";
+//import "./js/dist/log2textarea.js";
+import { Log2textarea } from "log2textarea/log2textarea.js";
 import "./css/app.css";
 import "./js/app.js";
 
+//let log = new Log2textarea("log");
+//Log2textarea.info("xxxxxxx");
 const app = createApp(App);
 app.mount("#app");
 
