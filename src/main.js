@@ -52,12 +52,12 @@ let worker = new Worker(new URL("./db_worker.js", import.meta.url), {
   type: "module",
 });
 
-const $iniciarBaseDeDatos = document.querySelector("#btnIniciarBaseDeDatos"),
-  $insertar = document.querySelector("#btnInsertar"),
-  $obtener = document.querySelector("#btnObtener"),
-  $nombre = document.querySelector("#nombre"),
-  $fechaNacimiento = document.querySelector("#fechaNacimiento"),
-  $contenedorPersonas = document.querySelector("#contenedorPersonas");
+const $iniciarBaseDeDatos = document.querySelector("#btnIniciarBaseDeDatos");
+const $insertar = document.querySelector("#btnInsertar");
+const $obtener = document.querySelector("#btnObtener");
+const $nombre = document.querySelector("#nombre");
+const $fechaNacimiento = document.querySelector("#fechaNacimiento");
+const $contenedorPersonas = document.querySelector("#contenedorPersonas");
 
 $insertar.addEventListener("click", () => {
   worker.postMessage([
@@ -65,12 +65,15 @@ $insertar.addEventListener("click", () => {
     { nombre: $nombre.value, fechaNacimiento: $fechaNacimiento.value },
   ]);
 });
+
 $obtener.addEventListener("click", () => {
   worker.postMessage(["obtener_personas"]);
 });
+
 $iniciarBaseDeDatos.onclick = () => {
   worker.postMessage(["iniciar"]);
 };
+
 worker.onmessage = (evento) => {
   const accion = evento.data[0];
   const argumentos = evento.data[1];
@@ -81,8 +84,15 @@ worker.onmessage = (evento) => {
       );
       break;
     case "persona_insertada":
-      console.log({ argumentos });
+      //console.log({ argumentos });
+      log.info("...persona insertada");
       break;
+
+    case "log_message":
+      //console.log({ argumentos });
+      log.info(argumentos);
+      break;
+
     case "personas_obtenidas":
       const personas = argumentos;
       $contenedorPersonas.innerHTML = "";
