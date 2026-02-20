@@ -8,3 +8,8 @@ header nav img {
   width: auto;
   height: 2.1rem;
 }
+
+#logger {
+    font-size: 0.5rem;
+    min-height:250px;
+}
