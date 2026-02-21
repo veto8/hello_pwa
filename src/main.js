@@ -6,7 +6,12 @@ import "./css/app.css";
 import "./js/app.js";
 const log = new Log2textarea("logger");
 
+//import VueRouter from "vue-router"; // Correct
+import HomeView from "./vue/Home.vue";
+import AboutView from "./vue/About.vue";
+
 const app = createApp(App);
+//app.use(router);
 app.mount("#app");
 
 let install_prompt = null;
