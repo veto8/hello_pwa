@@ -1,17 +1,13 @@
 import { createApp } from "vue";
-import App from "./vue/App.vue";
+import App from "./App.vue";
+import router from "./router";
+
 import "@picocss/pico/css/pico.css";
 import Log2textarea from "log2textarea/log2textarea.js";
 import "./css/app.css";
 import "./js/app.js";
 const log = new Log2textarea("logger");
-
-//import VueRouter from "vue-router"; // Correct
-import HomeView from "./vue/Home.vue";
-import AboutView from "./vue/About.vue";
-
 const app = createApp(App);
-//app.use(router);
 app.mount("#app");
 
 let install_prompt = null;
