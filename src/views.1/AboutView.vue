@@ -5,7 +5,9 @@ export default {
 }
 </script>
 <template>
-About
+    <main class="container">
+      <router-view />
+    </main>
 </template>
 
 
