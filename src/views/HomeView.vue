@@ -6,6 +6,9 @@ export default {
 }
 </script>
 <template>
-Home
+    <main class="container">
+      <router-view />
+    </main>
+    <Add_to_desktop />
 </template>
 

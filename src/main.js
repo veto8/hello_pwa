@@ -9,4 +9,7 @@ import "./js/app.js";
 const log = new Log2textarea("logger");
 const app = createApp(App);
 app.use(router);
+app.provide("log", log);
 app.mount("#app");
+//app.provide(log);
+//app.config.globalProperties.$log = log;
